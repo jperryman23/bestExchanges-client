@@ -1,47 +1,43 @@
-// entry point +> output
-
+/// entry point +> output
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  mode: "development", // "production" | "development" | "none"
-  entry: './src/index.js',
-  output: {
-    path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
-  },
-  module: {
-    rules : [
-    {
-      loader: 'babel-loader',
-      test: /\.js$/,
-      exclude: /node_modules/
+module.exports = (env) => {
+  const isProduction = env === 'production';
+  const CSSExtract = new ExtractTextPlugin('styles.css');
+  // console.log('env', env);
+
+  return {
+    mode: env,
+    entry: './src/app.js',
+    output: {
+      path: path.join(__dirname, 'public', 'dist'),
+      filename: 'bundle.js'
     },
-    {
-      test: /\.json$/,
-      use: 'json-loader',
+    module: {
+      rules: [{
+        loader: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/
+      }, {
+        test: /\.css$/,
+        use: CSSExtract.extract({
+          use: [{
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }]
+        })
+      }]
     },
-    {
-      test: /\.(s)?css$/,
-      use: ['style-loader', 'css-loader'], //, 'sass-loader'
-    },
-    {
-      test: /\.svg$/,
-      use: 'svg-inline-loader',
-    },
-    {
-      test: /\.(jpe?g|png|gif|ico)$/i,
-      use: 'file-loader',
+    plugins: [CSSExtract],
+    devtool: isProduction ? 'source-map' : 'inline-source-map',
+    devServer: {
+      contentBase: path.join(__dirname, 'public'),
+      historyApiFallback: true,
+      publicPath: '/dist/'
     }
-      ]
-  },
-  // devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    inline: true
-  },
-  resolve: {
-  extensions: ['.js', '.json', '.jsx', '.css', '.scss']
-  }
-}
-
+  };
+};
 // loader

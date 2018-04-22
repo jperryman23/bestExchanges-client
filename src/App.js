@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRouter from './routers/AppRouter'
+import './app.css';
 
-class App extends Component {
-  render() {
-    return (
-       <div className="App">
-        <h1>Hello Jules! React at up, right now.</h1>
-      </div>
-    );
-  }
-}
+const jsx = (
+
+  <AppRouter />
+)
 
 
-export default App;
+ReactDOM.render(jsx, document.getElementById('app'));
