@@ -10,18 +10,29 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules : [{
+    rules : [
+    {
       loader: 'babel-loader',
       test: /\.js$/,
       exclude: /node_modules/
-    }, {
-      test: /\.s?css$/,
-      use: [
-        // 'style-loader',
-        // 'css-loader',
-        // 'sass-loader'
+    },
+    {
+      test: /\.json$/,
+      use: 'json-loader',
+    },
+    {
+      test: /\.(s)?css$/,
+      use: ['style-loader', 'css-loader'], //, 'sass-loader'
+    },
+    {
+      test: /\.svg$/,
+      use: 'svg-inline-loader',
+    },
+    {
+      test: /\.(jpe?g|png|gif|ico)$/i,
+      use: 'file-loader',
+    }
       ]
-    }]
   },
   // devtool: 'cheap-module-eval-source-map',
   devServer: {

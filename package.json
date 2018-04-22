@@ -21,12 +21,18 @@
   "homepage": "https://github.com/jperryman23/bestExchanges-client#readme",
   "dependencies": {
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "dotenv": "^5.0.1",
+    "file-loader": "^1.1.11",
     "live-server": "^1.2.0",
+    "morgan": "^1.9.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "style-loader": "^0.21.0",
+    "svg-inline-loader": "^0.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
