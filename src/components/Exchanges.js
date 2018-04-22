@@ -10,7 +10,7 @@ const Exchanges = (props) => (
     <Kraken currency={props.currency}/>
     <CoinCap currency={props.currency}/>
     <Poloniex currency={props.currency}/>
-    <GDAX currency={props.currency}/>
+    <Bittrex currency={props.currency}/>
 
 </div>
 )

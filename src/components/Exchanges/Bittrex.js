@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class GDAX extends React.Component {
+export default class Bittrex extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -38,7 +38,7 @@ export default class GDAX extends React.Component {
   render(){
     return(
       <div>
-        <h3>GDAX</h3>
+        <h3>Bittrex</h3>
         <p>BTC_USD: {this.state.BTC_USD}</p>
         {this.state.currency === 'ETH' && <p> BTC_ETH: {this.state.BTC_ETH}</p>}
         {this.state.currency === 'LTC' && <p> BTC_LTC: {this.state.BTC_LTC}</p>}
