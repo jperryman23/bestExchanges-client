@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-  // mode: "production", // "production" | "development" | "none"
+  mode: "development", // "production" | "development" | "none"
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'public'),

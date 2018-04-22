@@ -1,1 +1,27 @@
 // mode: "production", // "production" | "development" | "none"
+
+
+  "lint": "eslint . --ext .js,.jsx",
+
+
+    "start": "webpack-dev-server -d ./src/index.js",
+
+
+
+.eslintrc filename
+
+# {
+#   "extends": "airbnb",
+#   "env": {
+#     "es6": true,
+#     "browser": true,
+#     "node": true
+#   },
+#
+#     "rules": {
+#     "react/jsx-filename-extension": 0,
+#     "react/forbid-prop-types": 0
+#   },
+#
+#   "parser": "babel-eslint",
+# }
