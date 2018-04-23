@@ -7,6 +7,7 @@ import Home from '../components/Home';
 import Huey from '../components/Huey';
 import Duey from '../components/Duey';
 import Luey from '../components/Luey';
+import Footer from '../components/Footer';
 
 
 const AppRouter = () => (
@@ -22,8 +23,8 @@ const AppRouter = () => (
       <Route path ='/Luey' component={Luey} />
       <Route path ='/Huey' component={Huey} />
 
-
     </Switch>
+    <Footer />
 
   </div>
 

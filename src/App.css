@@ -1,3 +1,117 @@
+body {
+  /* background-image: url("/../../images/flamenco-beach.jpeg"); */
+  /* height: 100vh;
+  width: 100vw; */
+  /* background-position-x: 30%; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column; */
+}
+
+* {
+  font-family: Raleway;
+}
+
 .is-active{
-  color: blue;
+  color: #51c3d9;
+}
+
+.App {
+    padding: 25px;
+    text-align: center;
+
+}
+
+h1{
+  margin-left: 1rem;
+}
+
+canvas.chartjs-render-monitor#myChart {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto;
+}
+
+
+
+.all-charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin-top: 1.5rem; */
+  margin-bottom: 1rem;
+  /* border-bottom: 1px solid #554348; */
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  background-color: black;
+  color: white;
+  opacity: .90;
+}
+
+.header-title {
+  font-size: 25px;
+  margin-left: 2em;
+}
+
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 20vw;
+  margin-right: 3em;
+
+}
+
+a {
+  color: #747578;
+  padding: 0px;
+}
+
+a:hover {
+  color: #93B7BE;
+}
+
+.two-chart-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.address {
+  cursor: pointer;
+  border: 2px solid black;
+  margin-left: 1rem;
+  width: 25vw;
+  padding: 5px;
+  color: white;
+  background-color: rgb(6, 34, 134);
+  text-align:center;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: black;
+    opacity: .90;
+    color: white;
+    /* position: fixed; */≥
+    bottom: 0;
+    height: 45px;
+    width: 100vw;
+    align-items: center;
+    /* text-align: center; */
+    justify-content: space-around;
 }
