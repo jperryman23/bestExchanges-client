@@ -1,55 +1,27 @@
+const path = require("path");
+
 {
-  "extends": "eslint:recommended",
   "env": {
     "es6": true,
     "browser": true,
     "node": true
   },
-    "plugins": [
-      "react"
+  "extends": "eslint:recommended",
+  "sourceType": "module",
+  "plugins": [
+      "react",
+      "eslint-plugin-react",
+      "node"
     ],
+    "parser": "babel-eslint",
     "rules": {
-    "react/jsx-filename-extension": 0,
-    "react/forbid-prop-types": 0
-  },
+      "strict": 0
+      "react/jsx-filename-extension": 0,
+      "react/forbid-prop-types": 0,
+      "quotes": [
+        "error",
+        "single"
+        ]
+ }
 
-  # "parser": "babel-eslint",
 }
-
-
-
-# {
-#     "env": {
-#         "es6": true,
-#         "node": true
-#     },
-#     "extends": "eslint:recommended",
-#     "parserOptions": {
-#         "ecmaFeatures": {
-#             "experimentalObjectRestSpread": true,
-#             "jsx": true
-#         },
-#         "sourceType": "module"
-#     },
-#     "plugins": [
-#         "react"
-#     ],
-#     "rules": {
-#         "indent": [
-#             "error",
-#             "tab"
-#         ],
-#         "linebreak-style": [
-#             "error",
-#             "unix"
-#         ],
-#         "quotes": [
-#             "error",
-#             "single"
-#         ],
-#         "semi": [
-#             "error",
-#             "never"
-#         ]
-#     }
-# }
