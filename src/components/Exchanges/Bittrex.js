@@ -37,7 +37,7 @@ export default class Bittrex extends React.Component {
       this.showGraph();
 
       this.setState(() => ({
-        BTC_USD: 8321  // api data.data.rate.[]  ==> btcRate
+        BTC_USD: 8888  // api data.data.rate.[]  ==> btcRate
       }) )
     }
 
@@ -62,11 +62,11 @@ export default class Bittrex extends React.Component {
                 // adapt tmp_label here
                 labels: tmp_label,
                 datasets: [{
-                    label: 'Last 30days BTC Price',
+                    label: 'Last 30 days BTC Price',
                     // adapt tmp_label here
                     data: tmp_data,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)'
+                      'rgba(255, 99, 132, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255,99,132,1)',
@@ -120,8 +120,8 @@ export default class Bittrex extends React.Component {
           this.state.currency === 'ETH' &&
           <div>
             <p> BTC_ETH: {this.state.BTC_ETH}</p>
-            <div className="App">
-                    <h2>Bittrex 30 Days BTC-ETH Price History Chart</h2>
+            <div className="small-chart">
+                    <div className="smallHeader">Bittrex 30-Day BTC-ETH Price History Chart </div>
                     <br/>
                     <canvas id="myChart" ref="myChart" />
                 </div>
@@ -132,8 +132,8 @@ export default class Bittrex extends React.Component {
           this.state.currency === 'LTC' &&
           <div>
             <p> BTC_LTC: {this.state.BTC_LTC}</p>
-            <div className="App">
-                    <h2>Bittrex 30 Days BTC-LTC Price History Chart</h2>
+            <div className="small-chart">
+                    <div className="smallHeader">Bittrex 30-Day BTC-LTC Price History Chart </div>
                     <br/>
                     <canvas id="myChart" ref="myChart" />
                 </div>
@@ -144,8 +144,8 @@ export default class Bittrex extends React.Component {
           this.state.currency === 'DASH' &&
           <div>
             <p> BTC_DASH: {this.state.BTC_DASH}</p>
-            <div className="App">
-                    <h2>Bittrex 30 Days BTC-DASH Price History Chart</h2>
+            <div className="small-chart">
+                    <div className="smallHeader">Bittrex 30-Day BTC-DASH Price History Chart </div>
                     <br/>
                     <canvas id="myChart" ref="myChart" />
                 </div>

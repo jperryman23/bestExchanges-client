@@ -19,11 +19,23 @@ export default class Duey extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1> Duey's Page  <img src="/../../images/dash.png" alt="dash" height="35px"/> </h1>
+      <div className="siblingsPage duey">
+        <div className="sibTitle">
+          <img src="/../../images/dash.png" alt="dash" height="50px"/>
+          <div> DUEY'S PAGE </div>
+          <img src="/../../images/dash.png" alt="dash" height="50px"/>
+        </div>
+
+        <div className="bestRate">
+          <div> Current Best BTC_DASH Rate: .06332 </div>
+          <div> Exchange: Bittrex </div>
+          <div> 5 BTC = 70.2 DASH </div>
+        </div>
 
         <Exchanges currency='DASH' />
-        <p className="address" onClick={this.showAddress}> {this.state.addressShown ? '1BTvBMSEYSEnklaP5eAu4m4GFg7xJaNVN2' : 'Dueys BTC public address'}</p>
+        <div className="address-duey" onClick={this.showAddress}>
+            <img src="/../../images/bitcoin.png" alt="bitcoin" height="15px"/>
+           {this.state.addressShown ? '1BTvBMSEYSEnklaP5eAu4m4GFg7xJaNVN2' : 'Dueys BTC public address'}</div>
       </div>
     )
   }

@@ -19,14 +19,27 @@ export default class Huey extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Huey's Page  <img src="/../../images/ethereum.png" alt="ethereum" height="35px"/> </h1>
+      <div className="siblingsPage huey">
 
+      <div className="sibTitle">
+      <img src="/../../images/ethereum.png" alt="ethereum" height="50px"/>
+        <div> HUEY'S PAGE </div>
+        <img src="/../../images/ethereum.png" alt="ethereum" height="50px"/>
+      </div>
 
+    <div className="bestRate">
+      <div> Current Best BTH_ETH Rate: .06332 </div>
+      <div> Exchange: Poloniex </div>
+      <div> 5 BTC = 70.2 ETH </div>
+    </div>
 
 
         <Exchanges currency='ETH' />
-        <p className="address" onClick={this.showAddress}> {this.state.addressShown ? '1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2' : 'Hueys BTC public address'}</p>
+
+
+        <div className="address-huey" onClick={this.showAddress}>
+          <img src="/../../images/bitcoin.png" alt="bitcoin" height="15px"/> {this.state.addressShown ? '1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2' : 'Hueys BTC public address'}</div>
+
       </div>
     )
   }

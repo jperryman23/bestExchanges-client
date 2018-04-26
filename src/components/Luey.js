@@ -19,11 +19,27 @@ export default class Luey extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1> Luey's Page  <img src="/../../images/litecoin.png" alt="litecoin" height="35px"/> </h1>
+      <div className="siblingsPage luey">
+        <div className="sibTitle">
+      <img src="/../../images/litecoin.png" alt="litecoin" height="50px"/>
+          <div> LUEY'S PAGE </div>
+          <img src="/../../images/litecoin.png" alt="litecoin" height="50px"/>
+
+      </div>
+
+
+      <div className="bestRate">
+      <div> Current Best BTC_LTC Rate: .06332 </div>
+      <div> Exchange: Bittrex </div>
+      <div> 5 BTC = 70.2 LTC </div>
+      </div>
 
         <Exchanges currency='LTC' />
-        <p className="address" onClick={this.showAddress}> {this.state.addressShown ? '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy' : 'Lueys BTC public address'}</p>
+
+        <div className="address-luey" onClick={this.showAddress}>
+          <img src="/../../images/bitcoin.png" alt="bitcoin" height="15px"/>
+           {this.state.addressShown ? '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy' : 'Lueys BTC public address'}</div>
+
       </div>
     )
   }

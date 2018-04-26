@@ -12,41 +12,8 @@
     padding: 20px;
     text-align: center;
     /* height: 100vh; */
-    width: 100vw;
+    /* width: 100vw; */
 }
-h2 {
-    display: block;
-    font-size: 1.5em;
-    -webkit-margin-before: 0.5em;
-    -webkit-margin-after: 0.5em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    font-weight: bold;
-}
-
-.homePage{
-  display: flex;;
-  flex-direction: column;
-  justify-content: space-around;
-  
-}
-h1{
-  margin-left: 1rem;
-}
-
-canvas.chartjs-render-monitor#myChart {
-    display: block !important;
-    width: 100% !important;
-    margin: 0 auto;
-}
-
-
-.all-charts {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 
 
 header {
@@ -54,7 +21,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   /* margin-top: 1.5rem; */
-  margin-bottom: 1rem;
+  margin-bottom: .25rem;
   /* border-bottom: 1px solid #554348; */
   align-items: center;
   padding-bottom: 1rem;
@@ -89,35 +56,155 @@ a:hover {
   color: #93B7BE;
 }
 
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+.homePage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
 .two-chart-row{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.address {
+
+
+  .siblingsPage {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 80vh;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-bottom: 15px !important;
+  }
+
+.huey {
+    /* background-color: rgba(238, 235, 235, 0.5); */
+  }
+
+.duey {
+  /* background-color: rgba(215, 230, 249, 0.25); */
+}
+.sibTitle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-self: center;
+      width: 28vw;
+      justify-content: space-around;
+      font-size: 35px;
+      font-weight: bold;
+      /* text-decoration: underline; */
+      letter-spacing: 3px;
+      /* border-bottom: 1px solid black; */
+}
+
+
+.bestRate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 15em;
+  margin-right: 15em;
+  font-size: 15px;
+  font-weight: bold;
+  }
+
+
+  .four-chart-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    border-bottom: 2px solid rgba(99, 95, 99, 0.9) !important;
+    border-top: 2px solid rgba(99, 95, 99, 0.9) !important;
+  }
+
+
+
+canvas.chartjs-render-monitor#myChart {
+      display: block !important;
+      width: 22vw !important;
+      margin: 0 auto;
+      heigth: 20vh;
+      height: 20vh !important;
+  }
+
+.smallHeader{
+  color: rgb(116, 190, 209);
+  font-size: 15px;
+  font-weight: bold;
+  /* text-decoration: underline; */
+}
+
+.address-huey {
   cursor: pointer;
-  border: 2px solid black;
-  margin-left: 1rem;
+  border: 1px solid black;
+  align-self: left;
   width: 25vw;
   padding: 5px;
   color: white;
-  background-color: rgb(6, 34, 134);
-  text-align:center;
+  background-color: rgb(105, 108, 117);
+  text-align: center;
+  margin-left: 5px;
 }
 
+.address-luey {
+  cursor: pointer;
+  border: 1px solid black;
+  align-self: left;
+  width: 25vw;
+  padding: 5px;
+  color: white;
+  background-color: rgb(105, 108, 117);
+  text-align: center;
+  margin-left: 5px;
+}
+
+.address-duey {
+  cursor: pointer;
+  border: 1px solid black;
+  align-self: left;
+  align-items: center;
+  width: 25vw;
+  padding: 5px;
+  color: white;
+  background-color: rgb(52, 120, 189);
+  text-align: center;
+  margin-left: 5px;
+}
+
+
 footer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    background-color: black;
-    opacity: .90;
-    color: white;
-    /* position: fixed; */
-    bottom: 0;
-    height: 45px;
-    width: 100vw;
-    align-items: center;
-    /* text-align: center; */
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  background-color: black;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 45px;
+  width: 99vw;
+  color: white;
+  opacity: .90;
+  /* margin-right: 5px; */
+  margin-bottom: 5px;
 }

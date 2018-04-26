@@ -6,7 +6,7 @@ import Bittrex from './Exchanges/Bittrex';
 
 const Exchanges = (props) => (
 
-<div className="all-charts">
+<div className="four-chart-row">
 
     <Kraken currency={props.currency}/>
     <CoinCap currency={props.currency}/>
