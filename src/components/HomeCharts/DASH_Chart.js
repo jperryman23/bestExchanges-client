@@ -1,4 +1,6 @@
 import React from 'react';
+import Chart from 'chart.js';
+
 
 const DASH_URL = 'https://api.coindesk.com/v1/bpi/historical/close.json' // DASH API DATA
 
@@ -71,7 +73,7 @@ export default class DASH_Chart extends React.Component {
       return fetch(DASH_URL)
           .then(r => r.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
               this.setState({ dashPrices: data.bpi })
               this.showGraph()
           })

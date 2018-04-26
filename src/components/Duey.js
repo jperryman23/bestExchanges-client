@@ -5,7 +5,9 @@ export default class Duey extends React.Component {
   constructor() {
     super()
     this.state = {
+      // total_dash: 0,
       addressShown: false
+
     }
   }
 
@@ -16,6 +18,12 @@ export default class Duey extends React.Component {
       this.setState({ addressShown: false })
     }
   };
+
+  // bestDashRate = () => {
+  //       amountDash = (5 / 0.053).toFixed(2)
+  //       console.log(amountDash);
+  //     // this.setState(total_dash: amountDash )
+  // }
 
   render() {
     return (
@@ -28,13 +36,13 @@ export default class Duey extends React.Component {
           </div>
 
 
-          <img src="/../../images/dash-letters.png" alt="dashl" height="35px"/>
+          <img src="/../../images/dash-letters.png" alt="dash" height="35px"/>
         </div>
 
         <div className="bestRate">
-          <div> Current Best BTC_DASH Rate: .06332 </div>
-          <div> Exchange: Bittrex </div>
-          <div> 5 BTC = 70.2 DASH </div>
+          <div> Current Best BTC_DASH Rate: 0.053 </div>
+          <div> Exchange: CoinCap </div>
+          <div> 5 BTC = 94.33 DASH </div>
         </div>
 
         <Exchanges currency='DASH' />

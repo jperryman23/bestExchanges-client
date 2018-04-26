@@ -28,7 +28,7 @@ export default class Huey extends React.Component {
           <div> HUEY'S PAGE </div>
         </div>
 
-        <img src="/../../images/eth-letters.png" alt="dashl" height="85px"/>
+        <img src="/../../images/eth-letters.png" alt="dash" height="75px"/>
 
       </div>
 
@@ -40,7 +40,6 @@ export default class Huey extends React.Component {
 
 
         <Exchanges currency='ETH' />
-
 
         <div className="address-huey" onClick={this.showAddress}>
           <img src="/../../images/bitcoin.png" alt="bitcoin" height="15px"/> {this.state.addressShown ? '1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2' : 'Hueys BTC public address'}</div>

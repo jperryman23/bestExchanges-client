@@ -2,13 +2,13 @@ import React from 'react';
 import Chart from 'chart.js';
 
 const URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
-
+const coincap_URL ='http://coincap.io/page/'
 
 export default class CoinCap extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        BTC_USD: 0,
+        USD_BTC: 0,
         BTC_ETH: 0,
         BTC_LTC: 0,
         BTC_DASH: 0,
@@ -33,12 +33,13 @@ export default class CoinCap extends React.Component {
       //           // }
       //     })
       // })
-      this.getBTCPrice();
+      this.getBTC_HIST()
+      this.getBTCPrice()
+      this.getETHPrice()
+      this.getLTCPrice()
+      this.getDASHPrice()
       this.showGraph();
 
-      this.setState(() => ({
-        BTC_USD: 8321  // api data.data.rate.[]  ==> btcRate
-      }) )
     }
 
     showGraph() {
@@ -68,10 +69,10 @@ export default class CoinCap extends React.Component {
                     // adapt tmp_label here
                     data: tmp_data,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)'
+                        'rgba(38, 126, 255, 0.6)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
+                        'rgba(27, 27, 27, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -99,12 +100,12 @@ export default class CoinCap extends React.Component {
         })
     }
 
-    getBTCPrice() {
+  getBTC_HIST() {
         return fetch(URL)
             .then(r => r.json())
             .then(data => {
                 // show response data in console
-                console.log('data: ', data)
+                // console.log('data: ', data)
                 this.setState({ btcPrices: data.bpi })
 								// add here to update Graph chart when finish fetching data
                 this.showGraph()
@@ -113,6 +114,53 @@ export default class CoinCap extends React.Component {
                 console.log(err)
             })
     }
+
+    getBTCPrice() {
+        return fetch('http://coincap.io/page/' + 'BTC')
+            .then(r => r.json())
+            .then(data => {
+                this.setState({ USD_BTC: '$' + data.price_usd.toFixed(2)})
+            })
+            .catch(err => {
+                console.log(err)
+            })
+          }
+
+    getETHPrice() {
+        return fetch('http://coincap.io/page/' + 'ETH')
+            .then(r => r.json())
+            .then(data => {
+                this.setState({ BTC_ETH: data.price_btc.toFixed(5)})
+            })
+            .catch(err => {
+                console.log(err)
+            })
+          }
+
+      getLTCPrice() {
+          return fetch('http://coincap.io/page/' + 'LTC')
+              .then(r => r.json())
+              .then(data => {
+                  this.setState({ BTC_LTC: data.price_btc.toFixed(5)})
+              })
+              .catch(err => {
+                  console.log(err)
+              })
+            }
+
+      getDASHPrice(){
+            return fetch('http://coincap.io/page/' + 'DASH')
+                .then(r => r.json())
+                .then(data => {
+                    this.setState({ BTC_DASH: data.price_btc.toFixed(5)})
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+              }
+
+
+
 
   render(){
     return(
@@ -153,7 +201,7 @@ export default class CoinCap extends React.Component {
           </div>
 
         }
-        <p>Coin Cap BTC_USD: {this.state.BTC_USD}</p>
+        <p>CoinCap USD_BTC: {this.state.USD_BTC}</p>
 
       </div>
 

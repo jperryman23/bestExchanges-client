@@ -1,4 +1,5 @@
 import React from 'react';
+import Chart from 'chart.js';
 
 const ETH_URL = 'https://api.coindesk.com/v1/bpi/historical/close.json' // ETH API DATA
 
@@ -71,7 +72,7 @@ export default class ETH_Chart extends React.Component {
       return fetch(ETH_URL)
           .then(r => r.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
               this.setState({ ethPrices: data.bpi })
               this.showGraph()
           })

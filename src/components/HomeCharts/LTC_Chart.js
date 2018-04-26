@@ -1,4 +1,6 @@
 import React from 'react';
+import Chart from 'chart.js';
+
 
 const LTC_URL = 'https://api.coindesk.com/v1/bpi/historical/close.json' // LTC API DATA
 
@@ -71,7 +73,7 @@ export default class LTC_Chart extends React.Component {
       return fetch(LTC_URL)
           .then(r => r.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
               this.setState({ ltcPrices: data.bpi })
               this.showGraph()
           })

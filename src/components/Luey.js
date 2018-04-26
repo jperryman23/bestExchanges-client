@@ -27,21 +27,21 @@ export default class Luey extends React.Component {
             <div> LUEY'S PAGE </div>
           </div>
 
-          <img src="/../../images/ltc-letters.png" alt="dashl" height="50px"/>
+          <img src="/../../images/ltc-letters.png" alt="ltc-letters" height="50px"/>
         </div>
 
 
       <div className="bestRate">
-      <div> Current Best BTC_LTC Rate: .06332 </div>
-      <div> Exchange: Bittrex </div>
-      <div> 5 BTC = 70.2 LTC </div>
+      <div> Current Best BTC_LTC Rate: .01642 </div>
+      <div> Exchange: Coincap </div>
+      <div> 5 BTC = 304.5 LTC </div>
       </div>
 
         <Exchanges currency='LTC' />
 
         <div className="address-luey" onClick={this.showAddress}>
           <img src="/../../images/bitcoin.png" alt="bitcoin" height="15px"/>
-           {this.state.addressShown ? '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy' : 'Lueys BTC public address'}</div>
+           {this.state.addressShown ? '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy' : 'Lueys BTC public address'} </div>
 
       </div>
     )

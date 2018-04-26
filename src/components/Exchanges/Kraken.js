@@ -33,8 +33,8 @@ export default class Kraken extends React.Component {
       //           // }
       //     })
       // })
-      this.getBTCPrice();
-      this.showGraph();
+      this.getBTCPrices();
+
 
       this.setState(() => ({
         BTC_USD: 8321  // api data.data.rate.[]  ==> btcRate
@@ -68,10 +68,10 @@ export default class Kraken extends React.Component {
                     // adapt tmp_label here
                     data: tmp_data,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)'
+                        'rgba(117, 219, 167, 0.6)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
+                        'rgba(27, 27, 27, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -99,20 +99,41 @@ export default class Kraken extends React.Component {
         })
     }
 
-    getBTCPrice() {
-        return fetch(URL)
-            .then(r => r.json())
-            .then(data => {
-                // show response data in console
-                console.log('data: ', data)
-                this.setState({ btcPrices: data.bpi })
-								// add here to update Graph chart when finish fetching data
-                this.showGraph()
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
+    // POLULATES THE HISTORICAL GRAPH FOR BTC
+        getBTCPrices() {
+          if (this.props.currency="BTC"){
+            return fetch(URL)
+                .then(r => r.json())
+                .then(data => {
+                    // console.log('data: ', data)
+                    this.setState({ btcPrices: data.bpi })
+                     this.setState({ BTC_USD: '$' + data.bpi["2018-04-25"].toFixed(2)})
+                    this.showGraph()
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+          // }) else if (this.props.currency="ETH"){
+          //   return fetch(URL_ETH)
+          //       .then(r => r.json())
+          //       .then(data => {
+          //           // show response data in console
+          //           // console.log('data: ', data)
+          //           this.setState({ Prices: data.bpi })
+          //           this.setState({ BTC_ETH: data.bpi["2018-04-24"]})
+    			// 					// add here to update Graph chart when finish fetching data
+          //           this.showGraph()
+          //       })
+          //       .catch(err => {
+          //           console.log(err)
+          //       })
+          // }
+
+        }
+      }
+
+
 
   render(){
     return(

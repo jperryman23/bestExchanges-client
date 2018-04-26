@@ -1,8 +1,11 @@
 import React from 'react';
 import Chart from 'chart.js';
 
-const URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
-
+const BTC_URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
+const bittrex_URL = "https://bittrex.com/api/v1.1/public/getmarketsummaries/"
+// const BTC_ETH = 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-eth'
+// const BTC_LTC = 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-ltc'
+// const BTC_DASH = 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-eth'
 
 export default class Bittrex extends React.Component {
     constructor(props) {
@@ -13,19 +16,17 @@ export default class Bittrex extends React.Component {
         BTC_LTC: 0,
         BTC_DASH: 0,
         currency: this.props.currency,
-        btcPrices: {}
+        Prices: {}
       }
 
     }
 
     componentDidMount() {
 
-      /////API CALLS
-      // const ASKS_URL = 'http://localhost:3000/api/sendasks';
       // $(() => {
-      //     $.get(ASKS_URL).then(data => {
-      //         // console.log(data);
-      //           btcRate = data.[0]
+      //     $.get(BTC_ETH).then(data => {
+      //         console.log(data);
+      //           // btcRate = data.[0]
       //
       //           //   this.setState(() => ({
       //           //     BTC_USD: btcRate  // api data.data.rate.[]  ==> btcRate
@@ -33,23 +34,21 @@ export default class Bittrex extends React.Component {
       //           // }
       //     })
       // })
-      this.getBTCPrice();
-      this.showGraph();
+      this.getPrices();
+      // this.getETHPrice()
 
-      this.setState(() => ({
-        BTC_USD: 8888  // api data.data.rate.[]  ==> btcRate
-      }) )
+
     }
 
     showGraph() {
         // Change this to the correct data object
-        let btcPrices = this.state.btcPrices
+        let Prices = this.state.Prices
 
         let tmp_label = []
         let tmp_data = []
-        Object.keys(btcPrices).forEach(d => {
+        Object.keys(Prices).forEach(d => {
             tmp_label.push(d)
-            tmp_data.push(btcPrices[d])
+            tmp_data.push(Prices[d])
         })
 
         const canvas = this.refs.myChart
@@ -66,10 +65,10 @@ export default class Bittrex extends React.Component {
                     // adapt tmp_label here
                     data: tmp_data,
                     backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)'
+                        'rgba(251, 188, 30, 0.6)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
+                        'rgba(27, 27, 27, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -97,20 +96,23 @@ export default class Bittrex extends React.Component {
         })
     }
 
-    getBTCPrice() {
-        return fetch(URL)
+    getPrices() {
+        return fetch(BTC_URL)
             .then(r => r.json())
             .then(data => {
-                // show response data in console
-                console.log('data: ', data)
-                this.setState({ btcPrices: data.bpi })
-								// add here to update Graph chart when finish fetching data
-                this.showGraph()
+                // console.log('data: ', data)
+                this.setState({ Prices: data.bpi })
+              this.setState({ BTC_USD: '$' + data.bpi["2018-04-25"].toFixed(2)})
+              this.showGraph()
             })
             .catch(err => {
                 console.log(err)
             })
-    }
+          }
+
+
+
+
 
   render(){
     return(
