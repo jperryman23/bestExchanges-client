@@ -39,7 +39,7 @@ module.exports = (env) => {
       publicPath: '/dist/'
     },
     resolve: {
-      extensions: ['.js', '.json', '.jsx', '.css', '.scss']
+      extensions: ['.js', '.json', '.jsx', '.css']
     }
   };
 };

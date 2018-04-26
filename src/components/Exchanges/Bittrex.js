@@ -1,5 +1,5 @@
 import React from 'react';
-import Chart from 'chart.js'
+import Chart from 'chart.js';
 
 const URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
 

@@ -1,5 +1,6 @@
 import React from 'react';
-// import Chart from 'chart.js'
+import Chart from 'chart.js';
+
 
 export default class CoinCap extends React.Component {
     constructor(props) {

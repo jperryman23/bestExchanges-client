@@ -1,8 +1,8 @@
 import React from 'react';
 
-const URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
+const BTC_URL = 'https://api.coindesk.com/v1/bpi/historical/close.json' // BTC API DATA
 
-export default class Charts extends React.Component {
+export default class BTC_Chart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -36,10 +36,10 @@ export default class Charts extends React.Component {
                   label: 'Last 30days BTC Price',
                   data: tmp_data,
                   backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)'
+                      'rgba(251, 188, 30, 0.6)'
                   ],
                   borderColor: [
-                      'rgba(255,99,132,1)',
+                      'rgba(27, 27, 27, 1)'
                   ],
                   borderWidth: 1
               }]
@@ -68,7 +68,7 @@ export default class Charts extends React.Component {
   }
 
   getBTCPrice() {
-      return fetch(URL)
+      return fetch(BTC_URL)
           .then(r => r.json())
           .then(data => {
             console.log(data);

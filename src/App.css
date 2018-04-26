@@ -1,14 +1,4 @@
-body {
-  /* background-image: url("/../../images/flamenco-beach.jpeg"); */
-  /* height: 100vh;
-  width: 100vw; */
-  /* background-position-x: 30%; */
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
-  /* display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column; */
-}
+
 
 * {
   font-family: Raleway;
@@ -19,11 +9,27 @@ body {
 }
 
 .App {
-    padding: 25px;
+    padding: 20px;
     text-align: center;
-
+    /* height: 100vh; */
+    width: 100vw;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
 }
 
+.homePage{
+  display: flex;;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
 h1{
   margin-left: 1rem;
 }
@@ -33,7 +39,6 @@ canvas.chartjs-render-monitor#myChart {
     width: 100% !important;
     margin: 0 auto;
 }
-
 
 
 .all-charts {
@@ -62,6 +67,7 @@ header {
 .header-title {
   font-size: 25px;
   margin-left: 2em;
+  letter-spacing: 1px;
 }
 
 .header-menu {
@@ -107,7 +113,7 @@ footer {
     background-color: black;
     opacity: .90;
     color: white;
-    /* position: fixed; */≥
+    /* position: fixed; */
     bottom: 0;
     height: 45px;
     width: 100vw;
