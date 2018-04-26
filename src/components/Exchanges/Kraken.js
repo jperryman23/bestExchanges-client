@@ -2,13 +2,14 @@ import React from 'react';
 import Chart from 'chart.js'
 
 const URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
-
+const kraken_ticker='https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD,ETHXBT,LTCXBT,DASHXBT'
+// ETH to USD = https://api.kraken.com/0/public/Ticker?pair=XETHZUSD
 
 export default class Kraken extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        BTC_USD: 0,
+        USD_BTC: 0,
         BTC_ETH: 0,
         BTC_LTC: 0,
         BTC_DASH: 0,
@@ -34,11 +35,7 @@ export default class Kraken extends React.Component {
       //     })
       // })
       this.getBTCPrices();
-
-
-      this.setState(() => ({
-        BTC_USD: 8321  // api data.data.rate.[]  ==> btcRate
-      }) )
+      this.getKrackenPrices();
     }
 
     showGraph() {
@@ -107,12 +104,30 @@ export default class Kraken extends React.Component {
                 .then(data => {
                     // console.log('data: ', data)
                     this.setState({ btcPrices: data.bpi })
-                     this.setState({ BTC_USD: '$' + data.bpi["2018-04-25"].toFixed(2)})
+                    // this.setState({ BTC_USD: '$' + data.bpi["2018-04-25"].toFixed(2)})
                     this.showGraph()
                 })
                 .catch(err => {
                     console.log(err)
                 })
+              }
+            }
+
+
+            getKrackenPrices() {
+                  return fetch(kraken_ticker)
+                      .then(r => r.json())
+                      .then(data => {
+                        // console.log('data: ', data)
+                        this.setState({ USD_BTC:  '$' + parseFloat(data.result.XXBTZUSD.a).toFixed(2)});
+                        this.setState({ BTC_ETH: parseFloat(data.result.XETHXXBT.a).toFixed(5)});
+                        this.setState({ BTC_LTC: parseFloat(data.result.XLTCXXBT.a).toFixed(5)});
+                        this.setState({ BTC_DASH: parseFloat(data.result.DASHXBT.a).toFixed(5)});
+                      })
+                      .catch(err => {
+                          console.log(err)
+                      })
+              }
 
           // }) else if (this.props.currency="ETH"){
           //   return fetch(URL_ETH)
@@ -130,8 +145,6 @@ export default class Kraken extends React.Component {
           //       })
           // }
 
-        }
-      }
 
 
 
@@ -175,7 +188,7 @@ export default class Kraken extends React.Component {
           </div>
 
         }
-        <p>Kraken BTC_USD: {this.state.BTC_USD}</p>
+        <p>Kraken USD_BTC: {this.state.USD_BTC}</p>
 
       </div>
 

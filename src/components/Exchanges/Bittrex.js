@@ -1,17 +1,20 @@
 import React from 'react';
 import Chart from 'chart.js';
 
+const server_ULR = 'http://localhost:5050/api/bittrex'
 const BTC_URL = 'https://api.coindesk.com/v1/bpi/historical/close.json'
-const bittrex_URL = "https://bittrex.com/api/v1.1/public/getmarketsummaries/"
+// const bittrex_URL = "https://bittrex.com/api/v1.1/public/getmarketsummaries/"
 // const BTC_ETH = 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-eth'
 // const BTC_LTC = 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-ltc'
 // const BTC_DASH = 'https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-eth'
+// const orderbook= 'https://bittrex.com/api/v1.1/public/getorderbook?&market=BTC-ETH&type=buy';
+
 
 export default class Bittrex extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        BTC_USD: 0,
+        USDT_BTC: 0,
         BTC_ETH: 0,
         BTC_LTC: 0,
         BTC_DASH: 0,
@@ -35,7 +38,7 @@ export default class Bittrex extends React.Component {
       //     })
       // })
       this.getPrices();
-      // this.getETHPrice()
+      this.getCurrentPrices()
 
 
     }
@@ -111,7 +114,22 @@ export default class Bittrex extends React.Component {
           }
 
 
-
+    getCurrentPrices() {
+        return fetch(server_ULR)
+            .then(r => r.json())
+            .then(data => {
+                console.log('data: ', data)
+                // this.setState({ Prices: data.bpi })
+              this.setState({ USDT_BTC: '$' + data.USDT_BTC.toFixed(2)})
+              this.setState({ BTC_ETH: data.BTC_ETH.toFixed(5)})
+              this.setState({ BTC_LTC: data.BTC_LTC.toFixed(5)})
+              this.setState({ BTC_DASH: data.BTC_DASH.toFixed(5)})
+              // this.showGraph()
+            })
+            .catch(err => {
+                console.log(err)
+            })
+          }
 
 
   render(){
@@ -154,7 +172,7 @@ export default class Bittrex extends React.Component {
           </div>
 
         }
-        <p>Bittrex BTC_USD: {this.state.BTC_USD}</p>
+        <p>Bittrex USDT_BTC: {this.state.USDT_BTC}</p>
 
       </div>
 
