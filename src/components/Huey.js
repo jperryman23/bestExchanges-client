@@ -22,9 +22,14 @@ export default class Huey extends React.Component {
       <div className="siblingsPage huey">
 
       <div className="sibTitle">
-      <img src="/../../images/ethereum.png" alt="ethereum" height="50px"/>
-        <div> HUEY'S PAGE </div>
-        <img src="/../../images/ethereum.png" alt="ethereum" height="50px"/>
+
+        <div className="sibName">
+          <img src="/../../images/ethereum.png" alt="ethereum" height="50px"/>
+          <div> HUEY'S PAGE </div>
+        </div>
+
+        <img src="/../../images/eth-letters.png" alt="dashl" height="85px"/>
+
       </div>
 
     <div className="bestRate">

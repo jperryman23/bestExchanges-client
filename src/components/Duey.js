@@ -21,9 +21,14 @@ export default class Duey extends React.Component {
     return (
       <div className="siblingsPage duey">
         <div className="sibTitle">
-          <img src="/../../images/dash.png" alt="dash" height="50px"/>
-          <div> DUEY'S PAGE </div>
-          <img src="/../../images/dash.png" alt="dash" height="50px"/>
+
+          <div className="sibName">
+            <img src="/../../images/dash.png" alt="dash" height="50px"/>
+            <div> DUEY'S PAGE </div>
+          </div>
+
+
+          <img src="/../../images/dash-letters.png" alt="dashl" height="35px"/>
         </div>
 
         <div className="bestRate">

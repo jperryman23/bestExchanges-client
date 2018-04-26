@@ -21,11 +21,14 @@ export default class Luey extends React.Component {
     return (
       <div className="siblingsPage luey">
         <div className="sibTitle">
-      <img src="/../../images/litecoin.png" alt="litecoin" height="50px"/>
-          <div> LUEY'S PAGE </div>
-          <img src="/../../images/litecoin.png" alt="litecoin" height="50px"/>
 
-      </div>
+          <div className="sibName">
+            <img src="/../../images/litecoin.png" alt="litecoin" height="50px"/>
+            <div> LUEY'S PAGE </div>
+          </div>
+
+          <img src="/../../images/ltc-letters.png" alt="dashl" height="50px"/>
+        </div>
 
 
       <div className="bestRate">
